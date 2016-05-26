@@ -1,0 +1,6 @@
+platform :ios, '7.0'
+pod 'AFNetworking', '~> 3.1.0'
+pod 'MJRefresh', '~> 3.1.0'
+pod 'SVProgressHUD', '~> 2.0.3'
+pod 'TMCache', '~> 2.1.0'
+pod 'SDWebImage', '~> 3.7.6'

@@ -3,7 +3,12 @@
 
 # Build
 target
+build/
 
-# xcode stuff
+# Xcode stuff
 *.xcworkspace
 *.xcuserstate
+
+# Pods
+Podfile.lock
+Pods/
