@@ -1,12 +1,12 @@
 //
-//  CHWaterFlowLayout.m
+//  CHWaterFallLayout.m
 //  CHGank
 //
 //  Created by ChiHo on 5/23/16.
 //  Copyright © 2016 ChiHo. All rights reserved.
 //
 
-#import "CHWaterFlowLayout.h"
+#import "CHWaterFallLayout.h"
 
 static const CGFloat CHRowMargin = 10;
 
@@ -15,7 +15,7 @@ static const CGFloat CHColumnMargin = 10;
 static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
 
 
-@interface CHWaterFlowLayout()
+@interface CHWaterFallLayout()
 
 @property (nonatomic, strong) NSMutableArray *columnMaxYs;
 
@@ -23,7 +23,7 @@ static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
 
 @end
 
-@implementation CHWaterFlowLayout
+@implementation CHWaterFallLayout
 
 #pragma mark - 懒加载
 
@@ -72,20 +72,22 @@ static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
 {
     [super prepareLayout];
     
-    // 重置每一列的最大Y值
-    [self.columnMaxYs removeAllObjects];
-    NSInteger numberOfColumns = [self.layoutDataSource numberOfColumnsInFlowLayout:self];
-    for (NSUInteger i = 0; i < numberOfColumns; i ++) {
-        [self.columnMaxYs addObject:@(CHDefaultInsets.top)];
+    NSUInteger itemsCount = [self.collectionView numberOfItemsInSection:0];
+    if ([self.attrsArray count] >= itemsCount) {
+        // 重置每一列的最大Y值
+        [self.columnMaxYs removeAllObjects];
+        NSInteger numberOfColumns = [self.layoutDataSource numberOfColumnsInFlowLayout:self];
+        for (NSUInteger i = 0; i < numberOfColumns; i ++) {
+            [self.columnMaxYs addObject:@(CHDefaultInsets.top)];
+        }
+        [self.attrsArray removeAllObjects];
     }
     
     // 计算所有cell的布局属性
-    [self.attrsArray removeAllObjects];
-    NSUInteger count = [self.collectionView numberOfItemsInSection:0];
-    for (NSUInteger i = 0; i < count; i ++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i
+    while ([self.attrsArray count] < itemsCount) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[self.attrsArray count]
                                                      inSection:0];
-        UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
+        UICollectionViewLayoutAttributes *attrs = [self prepareLayoutAttributesForItemAtIndexPath:indexPath];
         [self.attrsArray addObject:attrs];
     }
 }
@@ -95,6 +97,18 @@ static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
  */
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+    NSMutableArray *attrsArray = [NSMutableArray array];
+    for (UICollectionViewLayoutAttributes *attribute in self.attrsArray) {
+        if (attribute.frame.origin.y > rect.origin.y + rect.size.height) {
+            break;
+        }
+        if (attribute.frame.origin.y + attribute.frame.size.height < rect.origin.y) {
+            continue;
+        } else {
+            [attrsArray addObject:attribute];
+        }
+    }
+    return attrsArray;
     return self.attrsArray;
 }
 
@@ -102,6 +116,11 @@ static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
  * 说明cell的布局属性
  */
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.attrsArray[indexPath.row];
+}
+
+- (UICollectionViewLayoutAttributes *)prepareLayoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
@@ -113,7 +132,7 @@ static const UIEdgeInsets CHDefaultInsets = {10, 10, 10, 10};
     // cell的宽度
     CGFloat w = (CGRectGetWidth(self.collectionView.frame) - xMargin) / numberOfColumns;
     // cell的高度，测试数据，随机数
-    CGFloat h = 100 + arc4random_uniform(150);
+    CGFloat h = [self.layoutDelegate flowLayout:self heightForRowAtIndexPath:indexPath];
     
     // 找出最短那一列的 列号 和 最大Y值
     CGFloat destMaxY = [self.columnMaxYs[0] doubleValue];
