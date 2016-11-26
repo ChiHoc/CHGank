@@ -6,7 +6,8 @@
 //  Copyright © 2016 ChiHo. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "GKAppDelegate.h"
+#import "GKAppDelegate+Setting.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self settingApplication:application didFinishLaunchingWithOptions:launchOptions];
+    
     return YES;
 }
 

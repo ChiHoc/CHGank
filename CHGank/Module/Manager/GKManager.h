@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CHNetworkMgr.h"
 
-#define QKTShareManager [GKManager sharedInstance]
-#define GKShareNetworkMgr [QKTShareManager networkMgr]
+#define GKShareManager [GKManager sharedInstance]
+#define GKShareNetworkMgr [GKShareManager networkMgr]
 
 @interface GKManager : NSObject
 

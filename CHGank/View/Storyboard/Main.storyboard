@@ -81,7 +81,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="qXk-3n-87r"/>
                     <connections>
-                        <outlet property="waterFallLayout" destination="sR4-tJ-evL" id="uB9-ZO-h9i"/>
+                        <outlet property="waterFallLayout" destination="sR4-tJ-evL" id="b8g-6h-b1o"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAA-5O-GeL" userLabel="First Responder" sceneMemberID="firstResponder"/>

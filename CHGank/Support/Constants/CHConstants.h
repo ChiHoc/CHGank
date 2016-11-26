@@ -25,7 +25,7 @@
 #define RGB(r, g, b)    [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define RGBA(r, g, b, a)    [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
-#define APP_DELEGATE    ((QKTAppDelegate *)[[UIApplication sharedApplication] delegate])
+#define APP_DELEGATE    ((GKAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 #define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)

@@ -20,8 +20,6 @@
 		A11426821D3672D900C6B53D /* CHBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A114264C1D3672D900C6B53D /* CHBaseResponse.m */; };
 		A11426831D3672D900C6B53D /* CHNetworkMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = A114264F1D3672D900C6B53D /* CHNetworkMgr.m */; };
 		A11426841D3672D900C6B53D /* CHNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426521D3672D900C6B53D /* CHNetworkConfig.m */; };
-		A114268E1D3672D900C6B53D /* GKImagesListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A114266F1D3672D900C6B53D /* GKImagesListCollectionViewController.m */; };
-		A114268F1D3672D900C6B53D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426721D3672D900C6B53D /* AppDelegate.m */; };
 		A11426901D3672D900C6B53D /* GKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426761D3672D900C6B53D /* GKManager.m */; };
 		A11426B71D3674D000C6B53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11426B41D3674D000C6B53D /* LaunchScreen.storyboard */; };
 		A11426B81D3674D000C6B53D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11426B51D3674D000C6B53D /* Main.storyboard */; };
@@ -33,6 +31,10 @@
 		A11426DB1D36767300C6B53D /* GKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426D01D36767300C6B53D /* GKTableViewController.m */; };
 		A11426DC1D36767300C6B53D /* GKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426D31D36767300C6B53D /* GKViewController.m */; };
 		A11426DD1D36767300C6B53D /* GKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11426D61D36767300C6B53D /* GKWebViewController.m */; };
+		A1C2AD521DE98C8300410B61 /* CHGankUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C2AD511DE98C8300410B61 /* CHGankUtils.m */; };
+		A1C2AD5A1DE9912600410B61 /* GKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C2AD571DE9912600410B61 /* GKAppDelegate.m */; };
+		A1C2AD5B1DE9912600410B61 /* GKAppDelegate+Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C2AD591DE9912600410B61 /* GKAppDelegate+Setting.m */; };
+		A1C2AD5D1DE9948600410B61 /* GKImagesListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C2AD5C1DE9948600410B61 /* GKImagesListCollectionViewController.m */; };
 		A1C536E61D00401C0086C7AD /* CHGank-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = A1C536E51D003E980086C7AD /* CHGank-Prefix.pch */; };
 		A1E1C49B1DB389BC00A2BF76 /* CHWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E1C49A1DB389BC00A2BF76 /* CHWaterFallLayout.m */; };
 		A1E1C49F1DB38CC100A2BF76 /* GKImageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E1C49E1DB38CC100A2BF76 /* GKImageDataSource.m */; };
@@ -76,9 +78,6 @@
 		A11426511D3672D900C6B53D /* CHNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNetworkConfig.h; sourceTree = "<group>"; };
 		A11426521D3672D900C6B53D /* CHNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNetworkConfig.m; sourceTree = "<group>"; };
 		A114266E1D3672D900C6B53D /* GKImagesListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImagesListCollectionViewController.h; sourceTree = "<group>"; };
-		A114266F1D3672D900C6B53D /* GKImagesListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagesListCollectionViewController.m; sourceTree = "<group>"; };
-		A11426711D3672D900C6B53D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A11426721D3672D900C6B53D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A11426751D3672D900C6B53D /* GKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKManager.h; sourceTree = "<group>"; };
 		A11426761D3672D900C6B53D /* GKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKManager.m; sourceTree = "<group>"; };
 		A11426791D3672D900C6B53D /* GKNotifyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNotifyProtocol.h; sourceTree = "<group>"; };
@@ -101,6 +100,13 @@
 		A11426D51D36767300C6B53D /* GKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWebViewController.h; sourceTree = "<group>"; };
 		A11426D61D36767300C6B53D /* GKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWebViewController.m; sourceTree = "<group>"; };
 		A1450E271CF20D7400DA0E0B /* CHGank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C2AD501DE98C8300410B61 /* CHGankUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGankUtils.h; sourceTree = "<group>"; };
+		A1C2AD511DE98C8300410B61 /* CHGankUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGankUtils.m; sourceTree = "<group>"; };
+		A1C2AD561DE9912600410B61 /* GKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKAppDelegate.h; sourceTree = "<group>"; };
+		A1C2AD571DE9912600410B61 /* GKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKAppDelegate.m; sourceTree = "<group>"; };
+		A1C2AD581DE9912600410B61 /* GKAppDelegate+Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GKAppDelegate+Setting.h"; sourceTree = "<group>"; };
+		A1C2AD591DE9912600410B61 /* GKAppDelegate+Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GKAppDelegate+Setting.m"; sourceTree = "<group>"; };
+		A1C2AD5C1DE9948600410B61 /* GKImagesListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagesListCollectionViewController.m; sourceTree = "<group>"; };
 		A1C536E51D003E980086C7AD /* CHGank-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CHGank-Prefix.pch"; sourceTree = "<group>"; };
 		A1E1C4991DB389BC00A2BF76 /* CHWaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWaterFallLayout.h; sourceTree = "<group>"; };
 		A1E1C49A1DB389BC00A2BF76 /* CHWaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWaterFallLayout.m; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		A114262F1D3672D900C6B53D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A1C2AD4F1DE98C8300410B61 /* Util */,
 				A11426301D3672D900C6B53D /* Catagory */,
 				A11426371D3672D900C6B53D /* Constants */,
 			);
@@ -316,7 +323,7 @@
 				A1E1C4991DB389BC00A2BF76 /* CHWaterFallLayout.h */,
 				A1E1C49A1DB389BC00A2BF76 /* CHWaterFallLayout.m */,
 				A114266E1D3672D900C6B53D /* GKImagesListCollectionViewController.h */,
-				A114266F1D3672D900C6B53D /* GKImagesListCollectionViewController.m */,
+				A1C2AD5C1DE9948600410B61 /* GKImagesListCollectionViewController.m */,
 			);
 			path = ImageList;
 			sourceTree = "<group>";
@@ -324,8 +331,10 @@
 		A11426701D3672D900C6B53D /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				A11426711D3672D900C6B53D /* AppDelegate.h */,
-				A11426721D3672D900C6B53D /* AppDelegate.m */,
+				A1C2AD561DE9912600410B61 /* GKAppDelegate.h */,
+				A1C2AD571DE9912600410B61 /* GKAppDelegate.m */,
+				A1C2AD581DE9912600410B61 /* GKAppDelegate+Setting.h */,
+				A1C2AD591DE9912600410B61 /* GKAppDelegate+Setting.m */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -503,6 +512,15 @@
 			path = CHGank;
 			sourceTree = "<group>";
 		};
+		A1C2AD4F1DE98C8300410B61 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A1C2AD501DE98C8300410B61 /* CHGankUtils.h */,
+				A1C2AD511DE98C8300410B61 /* CHGankUtils.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		A1E1C49C1DB38CA800A2BF76 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,10 +659,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A114268F1D3672D900C6B53D /* AppDelegate.m in Sources */,
 				A10D40181D8BE06800813965 /* GKImageCollectionCell.m in Sources */,
 				A114267F1D3672D900C6B53D /* NSMutableObject+SafeInsert.m in Sources */,
-				A114268E1D3672D900C6B53D /* GKImagesListCollectionViewController.m in Sources */,
 				A11426801D3672D900C6B53D /* ObjcRuntimeUtil.mm in Sources */,
 				A114267A1D3672D900C6B53D /* GKListDataSource.m in Sources */,
 				A11426DA1D36767300C6B53D /* GKTableListController.m in Sources */,
@@ -653,11 +669,14 @@
 				A11426C01D36766D00C6B53D /* GKPromptView.m in Sources */,
 				A11426D91D36767300C6B53D /* GKTabBarController.m in Sources */,
 				A11426811D3672D900C6B53D /* CHAFAPIClient.m in Sources */,
+				A1C2AD5A1DE9912600410B61 /* GKAppDelegate.m in Sources */,
 				A114267C1D3672D900C6B53D /* NSDictionary+Extensions.m in Sources */,
 				A114267B1D3672D900C6B53D /* GKData.m in Sources */,
 				A1E1C49F1DB38CC100A2BF76 /* GKImageDataSource.m in Sources */,
 				A1E1C49B1DB389BC00A2BF76 /* CHWaterFallLayout.m in Sources */,
 				A11426841D3672D900C6B53D /* CHNetworkConfig.m in Sources */,
+				A1C2AD5D1DE9948600410B61 /* GKImagesListCollectionViewController.m in Sources */,
+				A1C2AD5B1DE9912600410B61 /* GKAppDelegate+Setting.m in Sources */,
 				A11426901D3672D900C6B53D /* GKManager.m in Sources */,
 				A11426831D3672D900C6B53D /* CHNetworkMgr.m in Sources */,
 				A11426D81D36767300C6B53D /* GKCollectionViewController.m in Sources */,
@@ -667,6 +686,7 @@
 				A114267E1D3672D900C6B53D /* CHNotificationCenter.mm in Sources */,
 				A11426821D3672D900C6B53D /* CHBaseResponse.m in Sources */,
 				A11426DD1D36767300C6B53D /* GKWebViewController.m in Sources */,
+				A1C2AD521DE98C8300410B61 /* CHGankUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

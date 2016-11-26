@@ -11,7 +11,7 @@
 @interface CHAFAPIClient : AFHTTPSessionManager
 
 /**
- *  QKTAPI client singleton.
+ *  GKAPI client singleton.
  *
  *  @return singleton of API client.
  */

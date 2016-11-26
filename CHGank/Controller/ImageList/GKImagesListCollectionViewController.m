@@ -11,6 +11,7 @@
 #import "GKImageDataSource.h"
 #import "GKImageCollectionCell.h"
 #import "GKData.h"
+#import "CHGankUtils.h"
 
 @interface GKImagesListCollectionViewController () <CHWaterFallLayoutDataSource, CHWaterFallLayoutDelegate>
 
@@ -27,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setNavigationBarTitle:@"最新"];
     
     self.heightAry = [NSMutableArray array];
     
@@ -72,7 +75,8 @@
         GKImageCollectionCell *cell = (GKImageCollectionCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
         GKData *data = self.dataSource.data[indexPath.row];
         [cell setImageWithUri:data.url];
-        [cell setTitleText:data.desc];
+        NSDate *date = [CHGankUtils dateFromString:data.publishedTime];
+        [cell setTitleText:[CHGankUtils formatDate:date formatterStyle:@"YYYY-MM-dd"]];
         return cell;
     }
     return [UICollectionViewCell new];
