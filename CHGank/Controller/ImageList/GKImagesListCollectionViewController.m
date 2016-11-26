@@ -75,7 +75,7 @@
         [cell setTitleText:data.desc];
         return cell;
     }
-    return nil;
+    return [UICollectionViewCell new];
 }
 
 #pragma mark - CHWaterFallLayoutDelegate
@@ -98,43 +98,16 @@
 
 - (void)dataSourceDidReceiveResponse:(GKListDataSource *)dataSource
 {
-    [self resetHeaderFooter];
-    [self.collectionView.mj_header setHidden:NO];
-    if (!dataSource.isLoadAll) {
-        [self.collectionView.mj_footer setHidden:NO];
+    [super dataSourceDidReceiveResponse:dataSource];
+    if (dataSource.isLoadAll) {
+        [self.collectionView.mj_footer setHidden:YES];
     }
 }
 
 - (void)dataSourceDidFailedToRequestData:(GKListDataSource *)dataSource
 {
-    if (![dataSource.data count]) {
-        //        [self.promptView setHidden:NO];
-#warning Failed loading
-        [self.collectionView.mj_footer setHidden:YES];
-    }
-}
-
-- (void)dataSourceDidRefreshData:(GKListDataSource *)dataSource
-{
-    [self.collectionView reloadData];
-}
-
-- (void)dataSource:(GKListDataSource *)dataSource didAddDataWithStart:(NSInteger)start length:(NSInteger)length
-{
-    NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:length];
-    for (NSInteger row = 0; row < length; row ++) {
-        [indexPaths addObject:[NSIndexPath indexPathForRow:start + row inSection:self.listSection]];
-    }
-    if ([dataSource.data count]) {
-        [self.collectionView reloadData];
-    } else {
-        [self.collectionView insertItemsAtIndexPaths:indexPaths];
-    }
-}
-
-- (void)dataSourceDidLoadAllData:(GKListDataSource *)dataSource
-{
-    [self.collectionView.mj_footer setHidden:YES];
+    [super dataSourceDidFailedToRequestData:dataSource];
+    [SVProgressHUD showErrorWithStatus:@"Request Failed"];
 }
 
 @end

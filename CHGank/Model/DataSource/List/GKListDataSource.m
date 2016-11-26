@@ -11,8 +11,6 @@
 
 @interface GKListDataSource ()
 
-@property (nonatomic, assign) NSUInteger page;
-
 @end
 
 @implementation GKListDataSource
@@ -40,26 +38,7 @@
 
 - (void)requestData:(BOOL)isRefresh
 {
-    if (isRefresh) {
-        self.page = 1;
-        self.data = @[];
-        self.isLoadAll = NO;
-    }
-    self.isLoading = YES;
-    __weak typeof(self) weakSelf = self;
-    [GKShareNetworkMgr requestDataWithType:CHRequestTypeImagePage
-                                  formData:nil
-                                parameters:@{@(0) : [NSString stringWithFormat:@"%lu", (unsigned long)self.page ++]}
-                                  userInfo:nil
-                                  progress:nil
-                                   success:^(id responseObject, NSDictionary *userInfo) {
-                                       NSArray *imagePages = responseObject[@"imagePages"];
-                                       [weakSelf setListData:imagePages];
-                                   } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
-                                       if ([weakSelf.delegate respondsToSelector:@selector(dataSourceDidFailedToRequestData:)]) {
-                                           [weakSelf.delegate dataSourceDidFailedToRequestData:weakSelf];
-                                       }
-                                   }];
+    CHLogError();
 }
 
 /**

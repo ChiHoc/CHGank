@@ -33,6 +33,31 @@
     [self asynImageDatas:listData];
 }
 
+
+- (void)requestData:(BOOL)isRefresh
+{
+    if (isRefresh) {
+        self.page = 1;
+        self.data = @[];
+        self.isLoadAll = NO;
+    }
+    self.isLoading = YES;
+    __weak typeof(self) weakSelf = self;
+    [GKShareNetworkMgr requestDataWithType:CHRequestTypeImagePage
+                                  formData:nil
+                                parameters:@{@(0) : [NSString stringWithFormat:@"%lu", (unsigned long)self.page ++]}
+                                  userInfo:nil
+                                  progress:nil
+                                   success:^(id responseObject, NSDictionary *userInfo) {
+                                       NSArray *imagePages = responseObject[@"imagePages"];
+                                       [weakSelf setListData:imagePages];
+                                   } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
+                                       if ([weakSelf.delegate respondsToSelector:@selector(dataSourceDidFailedToRequestData:)]) {
+                                           [weakSelf.delegate dataSourceDidFailedToRequestData:weakSelf];
+                                       }
+                                   }];
+}
+
 - (void)asynImageDatas:(NSArray *)imageDatas
 {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
@@ -54,12 +79,12 @@
                                                                 }
                                                                 if (image) {
                                                                     imageData.imageSize = image.size;
-                                                                    NSMutableArray *temp = [NSMutableArray arrayWithArray:self.data];
-                                                                    self.data = [temp arrayByAddingObject:imageData];
-                                                                    [self.delegate dataSource:self didAddDataWithStart:[self.data count] - 1 length:1];
                                                                 } else {
-#warning Failed loading
+                                                                    imageData.imageSize = CGSizeMake(500, 500);
                                                                 }
+                                                                NSMutableArray *temp = [NSMutableArray arrayWithArray:self.data];
+                                                                self.data = [temp arrayByAddingObject:imageData];
+                                                                [self.delegate dataSource:self didAddDataWithStart:[self.data count] - 1 length:1];
                                                                 dispatch_semaphore_signal(semaphore);
                                                             });
                                                         }];

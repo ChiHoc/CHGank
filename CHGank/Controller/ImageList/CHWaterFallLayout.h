@@ -12,13 +12,27 @@
 
 @protocol CHWaterFallLayoutDelegate <UICollectionViewDelegate>
 
-- (CGFloat)flowLayout:(CHWaterFallLayout *)flowView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ 指定位置cell高度
+
+ @param flowView flowView
+ @param indexPath 位置
+ @return 高度
+ */
+- (CGFloat)flowLayout:(CHWaterFallLayout *)flowlayout heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @protocol CHWaterFallLayoutDataSource <UICollectionViewDataSource>
 
-- (NSInteger)numberOfColumnsInFlowLayout:(CHWaterFallLayout*)flowlayout;
+
+/**
+ 瀑布流行数
+ 
+ @param flowlayout flowlayout
+ @return 瀑布流行数
+ */
+- (NSInteger)numberOfColumnsInFlowLayout:(CHWaterFallLayout *)flowlayout;
 
 @end
 

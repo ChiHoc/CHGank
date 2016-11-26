@@ -51,6 +51,7 @@
 
 @interface GKListDataSource : NSObject
 
+@property (nonatomic, assign) NSUInteger page;
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, assign) BOOL isLoadAll;
 @property (nonatomic, assign) BOOL isLoading;

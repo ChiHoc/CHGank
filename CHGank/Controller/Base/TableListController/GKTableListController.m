@@ -228,7 +228,7 @@ static NSString *const promptCellIdentifier = @"promptCell";
             return cell;
         }
     }
-    return nil;
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
 }
 
 #pragma mark - 网络请求

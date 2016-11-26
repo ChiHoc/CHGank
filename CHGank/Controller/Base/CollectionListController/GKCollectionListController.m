@@ -194,7 +194,7 @@ static NSString *const PromptCellIdentifier = @"promptCell";
             return cell;
         }
     }
-    return nil;
+    return [UICollectionViewCell new];
 }
 
 
